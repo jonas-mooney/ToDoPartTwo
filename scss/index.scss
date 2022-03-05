@@ -1,0 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backDrop {
+  width: 700px;
+  height: 800px;
+  margin-top: 50px;
+}
+
+.asideMain {
+  display: flex;
+  flex-direction: row;
+  border: 5px solid black;
+}
+
+aside {
+  background-color: lightyellow;
+  width: 30%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-right: 5px solid black;
+
+  input {
+    width: 90%;
+    height: 2em;
+    margin: 10px;
+  }
+  #groupList {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 110%;
+    height: 10.5em;
+    margin-left: -21px;
+    overflow: scroll;
+
+    li {
+      padding: 5px;
+      width: 170px;
+      margin-top: 5px;
+      border: 1px solid rgb(82, 81, 81);
+      border-radius: 1em;
+      background-color: rgb(206, 240, 252);
+    }
+    li:hover {
+      cursor: pointer;
+      background-color: lightblue;
+
+    }
+  }
+  button {
+    width: 4em;
+    justify-self: flex-end;
+    margin: 10px;
+  }
+}
+
+main {
+  background-color: rgb(206, 240, 252);
+  width: 80%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+  #groupHeader {
+    margin: 10px 10px 0 25px;
+  }
+  #itemList {
+    height: 180px;
+    list-style-type: none;
+    overflow: scroll;
+
+    li {
+      // border: 1px solid lightyellow;
+      padding: 5px;
+      margin: 0 2em;
+
+      #newTask {
+        display: block;
+      }
+    }
+  }
+  button {
+    width: 4em;
+    margin: 10px;
+    align-self: center;
+  }
+
+}
