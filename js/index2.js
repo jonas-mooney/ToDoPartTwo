@@ -55,11 +55,11 @@ function renderItemList(groupIdNumber) {
   // Displaying group name
 
   let itemList = document.querySelector('#itemList');
-  let foundObjectTasks = foundObject.tasks;
+  itemList.innerHTML = foundObject.tasks;
+  // Grabbing itemList from DOM, setting found
 
-  console.log(foundObjectTasks);
-
-  itemList.innerHTML = foundObjectTasks;
+  // if else to prevent {object} displaying
+  
   // Setting the task list equal to array of tasks within group
 
   addItemsToList();
@@ -100,7 +100,7 @@ function renderListItems(groupStorageTasks) {
   
   
   for (let i=0; i < foundItem.tasks.length; i++) {
-    itemListHTML += `<li>${foundItem.tasks[i].name}`
+    itemListHTML += `<li><input type='radio'>${foundItem.tasks[i].name}`
   }
 
   itemList.innerHTML = itemListHTML;
@@ -122,35 +122,6 @@ function renderListItems(groupStorageTasks) {
 
 add1.addEventListener('click', addGroup);
 add2.addEventListener('click', addItemsToList);
-
-
-
-
-// objectExample = {
-
-//   colors: [
-//     green = {
-//       id: 123,
-//       age: 321,
-//     },
-//     blue = {
-//       id: 234,
-//       age: 432,
-//     }
-//   ]
-// }
-
-// const foundObject = objectExample.colors.find((object) => {
-//   return object.id === 123;
-// })
-
-// console.log(foundObject);
-
-
-
-
-
-
 
 
 // REST
