@@ -25,7 +25,7 @@ body {
 aside {
   background-color: lightyellow;
   width: 30%;
-  height: 300px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +43,7 @@ aside #groupList {
   flex-direction: column;
   justify-self: center;
   width: 110%;
-  height: 10.5em;
+  height: 450px;
   margin-left: -21px;
   overflow: scroll;
 }
@@ -68,7 +68,7 @@ aside button {
 main {
   background-color: #cef0fc;
   width: 80%;
-  height: 300px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -79,24 +79,34 @@ main #groupHeader {
   text-align: center;
 }
 main #itemList {
-  height: 180px;
+  height: 460px;
   list-style-type: none;
   overflow: scroll;
+}
+main #itemList #newTask {
+  display: block;
 }
 main #itemList li {
   padding: 5px;
   margin: 0 2em;
+  display: flex;
+  align-items: center;
 }
 main #itemList li input {
   margin: 0 2em;
 }
-main #itemList li #newTask {
-  display: block;
+main #itemList li .deleteButton {
+  background-color: lightgoldenrodyellow;
+  border: 2px solid red;
+  border-radius: 4px;
 }
 main button {
   width: 4em;
   margin: 10px;
   align-self: center;
+}
+main button:hover {
+  background-color: lightyellow;
 }
 
 /*# sourceMappingURL=index.css.map */

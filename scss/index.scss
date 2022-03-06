@@ -25,7 +25,7 @@ body {
 aside {
   background-color: lightyellow;
   width: 30%;
-  height: 300px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +43,7 @@ aside {
     flex-direction: column;
     justify-self: center;
     width: 110%;
-    height: 10.5em;
+    height: 450px;
     margin-left: -21px;
     overflow: scroll;
 
@@ -71,7 +71,7 @@ aside {
 main {
   background-color: rgb(206, 240, 252);
   width: 80%;
-  height: 300px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between; // Leaves task input at the bottom
@@ -82,27 +82,39 @@ main {
     text-align: center;
   }
   #itemList {
-    height: 180px;
+    height: 460px;
     list-style-type: none;
     overflow: scroll;
+    
+    #newTask {
+      display: block;
+    }
 
     li {
       padding: 5px;
       margin: 0 2em;
+      display: flex;
+      align-items: center;
 
       input {
         margin: 0 2em;
       }
 
-      #newTask {
-        display: block;
+      .deleteButton {
+        background-color: lightgoldenrodyellow;
+        border: 2px solid red;
+        border-radius: 4px;
       }
+
     }
   }
   button {
     width: 4em;
     margin: 10px;
     align-self: center;
+  }
+  button:hover {
+    background-color: lightyellow;
   }
 
 }

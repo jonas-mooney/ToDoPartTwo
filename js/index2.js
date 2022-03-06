@@ -57,7 +57,7 @@ function renderItemList(groupIdNumber) {
   // Displaying group name
 
   for (let i=0; i < foundObject.tasks.length; i++) {
-    itemGroupHTML += `<br><li><input type='radio'>${foundObject.tasks[i].name}`
+    itemGroupHTML += `<br><li><input type='radio'><h4>${foundObject.tasks[i].name}</h4><button class='deleteButton'>Delete</button></li>`
   }
   itemList.innerHTML = itemGroupHTML;
   // Finding and inserting tasks from HTML
@@ -99,13 +99,18 @@ function renderNewListItems(groupStorageTasks) {
   })
   
   for (let i=0; i < foundItem.tasks.length; i++) {
-    itemListHTML += `<li><input type='radio'>${foundItem.tasks[i].name}`
+    itemListHTML += `<li><input type='radio'><h4>${foundItem.tasks[i].name}</h4><button class='deleteButton'>Delete</button></li>`
   }
 
   itemList.innerHTML = itemListHTML;
 
 }
 
+
+
+// function taskRadioStatus() {
+
+// }
 
 
 add1.addEventListener('click', addGroup);
