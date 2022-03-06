@@ -74,11 +74,12 @@ main {
   height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; // Leaves task input at the bottom
   align-items: center;
   
   #groupHeader {
     margin: 10px 10px 0 25px;
+    text-align: center;
   }
   #itemList {
     height: 180px;
@@ -86,9 +87,12 @@ main {
     overflow: scroll;
 
     li {
-      // border: 1px solid lightyellow;
       padding: 5px;
       margin: 0 2em;
+
+      input {
+        margin: 0 2em;
+      }
 
       #newTask {
         display: block;
@@ -102,3 +106,4 @@ main {
   }
 
 }
+

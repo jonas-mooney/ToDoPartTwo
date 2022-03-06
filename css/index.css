@@ -76,6 +76,7 @@ main {
 }
 main #groupHeader {
   margin: 10px 10px 0 25px;
+  text-align: center;
 }
 main #itemList {
   height: 180px;
@@ -84,6 +85,9 @@ main #itemList {
 }
 main #itemList li {
   padding: 5px;
+  margin: 0 2em;
+}
+main #itemList li input {
   margin: 0 2em;
 }
 main #itemList li #newTask {
