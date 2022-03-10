@@ -1,12 +1,10 @@
-
-
 const add1 = document.querySelector('#submit');
 const add2 = document.querySelector('#addTask');
 let foundObject = '';
 let groupStorageTasks = '';
-
-
 let groupStorage = JSON.parse(localStorage.getItem('Groups'));
+
+
 if (!groupStorage) {
   let storedGroupArray = new Group('Groups');
   localStorage.setItem(storedGroupArray.groupName, JSON.stringify(storedGroupArray));
@@ -57,7 +55,11 @@ function renderItemList(groupIdNumber) {
   // Displaying group name
 
   for (let i=0; i < foundObject.tasks.length; i++) {
-    itemGroupHTML += `<br><li><input type='radio'><h4>${foundObject.tasks[i].name}</h4><button class='deleteButton'>Delete</button></li>`
+    itemGroupHTML += `<li id='${foundObject.tasks[i].id}'>
+                      <input type='checkBox'>
+                      <h4>${foundObject.tasks[i].name}</h4>
+                      <button onclick=deleteTaskButton('${foundObject.tasks[i].id}') class='deleteButton'>Delete</button>
+                      </li>`
   }
   itemList.innerHTML = itemGroupHTML;
   // Finding and inserting tasks from HTML
@@ -76,6 +78,7 @@ function addItemsToList() {
 
     foundObject.tasks.push(storedTask);
     // Pushing new task group into global foundObject variable L5
+    // console.log(foundObject);
 
     groupStorage.tasks = groupStorage.tasks.filter((item) => foundObject.id != item.id);
     groupStorage.tasks.push(foundObject);
@@ -85,33 +88,52 @@ function addItemsToList() {
     localStorage.setItem(groupStorage.groupName, JSON.stringify(groupStorage));
     // Clearing local storage and replacing it with new Groups,groupstorage
     
-    renderNewListItems(groupStorage.tasks)
+    renderNewListItem(groupStorage.tasks)
   }
 }
 
-function renderNewListItems(groupStorageTasks) {
+function renderNewListItem(groupStorageTasks) {
   let itemList = document.querySelector('#itemList');
   let itemListHTML = '';
-  let groupHeader = document.querySelector('#groupHeader').innerHTML
+  let groupHeader = document.querySelector('#groupHeader').innerHTML;
 
   foundItem = groupStorageTasks.find((tasks) => {
     return tasks.groupName === groupHeader;
   })
   
   for (let i=0; i < foundItem.tasks.length; i++) {
-    itemListHTML += `<li><input type='radio'><h4>${foundItem.tasks[i].name}</h4><button class='deleteButton'>Delete</button></li>`
+    itemListHTML += `<li id='${foundItem.tasks[i].id}'>
+                    <input type='checkBox'>
+                    <h4>${foundItem.tasks[i].name}</h4>
+                    <button onclick=deleteTaskButton('${foundObject.tasks[i].id}') class='deleteButton'>Delete</button>
+                    </li>`
   }
-
   itemList.innerHTML = itemListHTML;
-
 }
 
+function deleteTaskButton(TaskId) {
+  let taskToDelete = document.querySelector(`${TaskId}`);
+  // let storedTask = JSON.parse(localStorage.getItem('Groups'));
+  // let foundItem = storedTask.find((item) => {
+  //   tasks
+  // })
+
+  // console.log(TaskId);
+}
+
+// let storedTask = JSON.parse(localStorage.getItem('Groups'));
+
+console.log(groupStorage);
+
+let foundEm = groupStorage.tasks.forEach(group => group.find(task => id == `ad09-72e4-5511-4bdb`))
+
+console.log(foundEm);
 
 
-// function taskRadioStatus() {
 
-// }
 
+// Bring entire local storage back into function, modify and return
+// ${foundItem.tasks[i].id}
 
 add1.addEventListener('click', addGroup);
 add2.addEventListener('click', addItemsToList);

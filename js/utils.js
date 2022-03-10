@@ -29,7 +29,7 @@ class List {
   }
 }
 // Filter function assigns to new array
-// Checking if tast id matches
+// Checking if task id matches
 
 
 class Task {
@@ -37,6 +37,7 @@ class Task {
     this.id = Utils.newGuide();
     this.name = text;
     this.completed = false;
+    this.delete = Utils.newGuide();
   }
 }
 
