@@ -45,7 +45,7 @@ aside {
     width: 110%;
     height: 450px;
     margin-left: -21px;
-    overflow: scroll;
+    // overflow: scroll;
 
     li {
       padding: 5px;
@@ -84,10 +84,20 @@ main {
   #itemList {
     height: 460px;
     list-style-type: none;
-    overflow: scroll;
+    // overflow: scroll;
     
     #newTask {
       display: block;
+    }
+
+    .listDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        width: 14em;
+      }
     }
 
     li {
@@ -96,10 +106,16 @@ main {
       display: flex;
       align-items: center;
 
-      input {
+      .checker {
         margin: 0 2em;
+        width: 3em;
       }
 
+      .editButton {
+        background-color: lightgoldenrodyellow;
+        border: 2px solid rgb(172, 38, 38);
+        border-radius: 4px;
+      }
       .deleteButton {
         background-color: lightgoldenrodyellow;
         border: 2px solid red;

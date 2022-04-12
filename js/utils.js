@@ -37,7 +37,7 @@ class Task {
     this.id = Utils.newGuide();
     this.name = text;
     this.completed = false;
-    this.delete = Utils.newGuide();
+    // this.delete = Utils.newGuide();
   }
 }
 

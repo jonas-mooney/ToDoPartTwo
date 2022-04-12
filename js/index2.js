@@ -2,8 +2,8 @@ const add1 = document.querySelector('#submit');
 const add2 = document.querySelector('#addTask');
 let foundObject = '';
 let groupStorageTasks = '';
-let groupStorage = JSON.parse(localStorage.getItem('Groups'));
 
+let groupStorage = JSON.parse(localStorage.getItem('Groups'));
 
 if (!groupStorage) {
   let storedGroupArray = new Group('Groups');
@@ -55,11 +55,12 @@ function renderItemList(groupIdNumber) {
   // Displaying group name
 
   for (let i=0; i < foundObject.tasks.length; i++) {
-    itemGroupHTML += `<li id='${foundObject.tasks[i].id}'>
-                      <input type='checkBox'>
+    itemGroupHTML += `<div class='listDiv' id='${foundObject.tasks[i].id}'><li>
+                      <input class='checker' type='checkBox'>
                       <h4>${foundObject.tasks[i].name}</h4>
+                      <button onclick=editTaskButton('${foundObject.tasks[i].id}') class='editButton'>Edit</button>
                       <button onclick=deleteTaskButton('${foundObject.tasks[i].id}') class='deleteButton'>Delete</button>
-                      </li>`
+                      </li></div>`
   }
   itemList.innerHTML = itemGroupHTML;
   // Finding and inserting tasks from HTML
@@ -78,7 +79,6 @@ function addItemsToList() {
 
     foundObject.tasks.push(storedTask);
     // Pushing new task group into global foundObject variable L5
-    // console.log(foundObject);
 
     groupStorage.tasks = groupStorage.tasks.filter((item) => foundObject.id != item.id);
     groupStorage.tasks.push(foundObject);
@@ -102,34 +102,39 @@ function renderNewListItem(groupStorageTasks) {
   })
   
   for (let i=0; i < foundItem.tasks.length; i++) {
-    itemListHTML += `<li id='${foundItem.tasks[i].id}'>
-                    <input type='checkBox'>
+    itemListHTML += `<div class='listDiv' id='${foundItem.tasks[i].id}'><li>
+                    <input class='checker' type='checkBox'>
                     <h4>${foundItem.tasks[i].name}</h4>
-                    <button onclick=deleteTaskButton('${foundObject.tasks[i].id}') class='deleteButton'>Delete</button>
-                    </li>`
+                    <button onclick=editTaskButton('${foundItem.tasks[i].id}') class='editButton'>Edit</button>
+                    <button onclick=deleteTaskButton('${foundItem.tasks[i].id}') class='deleteButton'>Delete</button>
+                    </li></div>`
   }
   itemList.innerHTML = itemListHTML;
 }
 
-function deleteTaskButton(TaskId) {
-  let taskToDelete = document.querySelector(`${TaskId}`);
-  // let storedTask = JSON.parse(localStorage.getItem('Groups'));
-  // let foundItem = storedTask.find((item) => {
-  //   tasks
-  // })
-
-  // console.log(TaskId);
+function deleteTaskButton(id) {
+  document.getElementById(id).innerHTML = null;
 }
 
-// let storedTask = JSON.parse(localStorage.getItem('Groups'));
+async function editTaskButton(id) {
+  let input = document.createElement('input');
+  document.getElementById(id).appendChild(input);
+  let button = document.createElement('button');
+  button.innerHTML = '👍'
+  document.getElementById(id).appendChild(button);
 
-console.log(groupStorage);
-
-let foundEm = groupStorage.tasks.forEach(group => group.find(task => id == `ad09-72e4-5511-4bdb`))
-
-console.log(foundEm);
+  let updatedInfo = input.innerText;
+  button.addEventListener('click', console.log(updatedInfo));
+}
 
 
+
+
+// 
+// 
+//  NEW IDEA 4/9 - FOR DELETE BUTTON, CREATE A RUNNING LIST OF ALL ITEMS THAT HAVE HAD THEIR DELETE BUTTON CLICKED, THEN FILTER OUT IN RENDER
+// 
+// 
 
 
 // Bring entire local storage back into function, modify and return

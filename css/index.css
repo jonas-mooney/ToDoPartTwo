@@ -45,7 +45,6 @@ aside #groupList {
   width: 110%;
   height: 450px;
   margin-left: -21px;
-  overflow: scroll;
 }
 aside #groupList li {
   padding: 5px;
@@ -81,10 +80,17 @@ main #groupHeader {
 main #itemList {
   height: 460px;
   list-style-type: none;
-  overflow: scroll;
 }
 main #itemList #newTask {
   display: block;
+}
+main #itemList .listDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main #itemList .listDiv input {
+  width: 14em;
 }
 main #itemList li {
   padding: 5px;
@@ -92,8 +98,14 @@ main #itemList li {
   display: flex;
   align-items: center;
 }
-main #itemList li input {
+main #itemList li .checker {
   margin: 0 2em;
+  width: 3em;
+}
+main #itemList li .editButton {
+  background-color: lightgoldenrodyellow;
+  border: 2px solid #ac2626;
+  border-radius: 4px;
 }
 main #itemList li .deleteButton {
   background-color: lightgoldenrodyellow;
