@@ -112,9 +112,25 @@ function renderNewListItem(groupStorageTasks) {
   itemList.innerHTML = itemListHTML;
 }
 
-function deleteTaskButton(id) {
-  document.getElementById(id).innerHTML = null;
+// let tempGroupId = 'temp';
+function itemDeleteHelper(groupId) {
+  console.log(groupId)
 }
+
+function deleteTaskButton(clickedId) {
+  let groupHeader = document.querySelector('#groupHeader').innerHTML;
+  let store = JSON.parse(localStorage.getItem('Groups'));
+  console.log(clickedId);
+  let group = store.tasks.find(element => element.groupName == groupHeader);
+  console.log(group);
+  let newGroup = group.tasks.filter(id => id != clickedId);
+  console.log(newGroup);
+
+  // console.log(groupHeader)
+  // console.log(clickedId)
+  // console.log(store)
+}
+
 
 async function editTaskButton(id) {
   let input = document.createElement('input');
